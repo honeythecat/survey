@@ -17,7 +17,7 @@ end
 
 get('/surveys/:id') do
   @survey = Survey.find(params["id"].to_i())
-  @questions = Question.all()
+  @this_surveys_questions = Question.find_by_survey_id(@survey.id())
   erb(:survey)
 end
 
@@ -42,4 +42,10 @@ end
 # -----------------------------------------------------
 
 post('/questions') do
+  question = params["question"]
+  survey_id = params["survey_id"].to_i()
+  @question = Question.new({:question => question, :survey_id => survey_id})
+  @question.save()
+  @survey = Survey.find(survey_id)
+  redirect("/surveys/#{survey_id}")
 end
