@@ -5,7 +5,7 @@
 <% if @surveys.any?() %>
   <ul>
     <% @surveys.each() do |survey| %>
-      <li><%= survey.title() %></li>
+      <li><a href="/surveys/<%= survey.id() %>"><%= survey.title() %></a>  |  <a href="/surveys/<%= survey.id() %>/edit">Update</a></li>
     <%end%>
   </ul>
 

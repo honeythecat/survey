@@ -1,10 +1,10 @@
 class Survey < ActiveRecord::Base
   validates(:title, { :presence => true, :length => { maximum: 70 } })
-  before_save(:capitalize_title)
+  before_save(:titlecase_title)
 
 private
 
-  define_method(:capitalize_title) do
+  define_method(:titlecase_title) do
     self.title=(title().titlecase())
   end
 end
