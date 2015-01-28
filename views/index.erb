@@ -12,3 +12,14 @@
 <% else %>
   <p>There are no surveys yet!</p>
 <% end %>
+
+<hr>
+
+<h3>Add a survey:</h3>
+
+<form action="/surveys" method="post" class="form-entry">
+  <label for="title"></label>
+  <input id="title" name="title" class="form-line" type="text" placeholder="ex: How much do you like surveys?">
+
+  <button type="submit">Add survey!</button>
+</form>
