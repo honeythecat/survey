@@ -8,3 +8,11 @@
 
   <button type="submit">Update</button>
 </form>
+
+<p></p>
+
+<form action="/questions/<%= @question.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete Question</button>
+</form>
