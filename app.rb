@@ -49,3 +49,17 @@ post('/questions') do
   @survey = Survey.find(survey_id)
   redirect("/surveys/#{survey_id}")
 end
+
+get('/questions/:id/edit') do
+  @question = Question.find(params["id"].to_i)
+  erb(:question_edit)
+end
+
+
+patch('/questions/:id') do
+  question = params["question"]
+  @question = Question.find(params["id"].to_i())
+  @question.update({:question => question})
+  survey_id = @question.survey_id()
+  redirect("/surveys/#{survey_id}")
+end

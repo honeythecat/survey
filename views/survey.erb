@@ -5,9 +5,10 @@
 <% if @this_surveys_questions.any?() %>
   <ol>
     <% @this_surveys_questions.each() do |question| %>
-      <li><%= question.question() %></li>
+      <li><%= question.question() %>  |  <a href="/questions/<%= question.id() %>/edit">Update</a></li>
     <% end %>
   </ol>
+
 <% else %>
   <p>There are no questions yet!</p>
 <% end %>
